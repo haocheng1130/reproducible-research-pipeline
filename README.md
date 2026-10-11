@@ -69,6 +69,7 @@ reproducible-research-pipeline/
 │   ├── notebooks-reports-publishing.md
 │   ├── scale-and-automation.md
 │   └── code-style.md
+├── agents/openai.yaml        # optional Codex UI metadata (display name, default prompt); other tools ignore it
 ├── templates/project/        # a small end-to-end example pipeline (see below)
 └── scripts/audit_pipeline.py # static audit of any repo against the conventions (stdlib only)
 ```
@@ -101,7 +102,8 @@ Install the skill from GitHub repo haocheng1130/reproducible-research-pipeline
 with --path . --name reproducible-research-pipeline
 ```
 Restart Codex (or start a new session) afterwards. Codex loads the skill when a
-task matches its description. Update later with `git pull` inside that folder
+task matches its description. You can also invoke it with
+`$reproducible-research-pipeline`. Update later with `git pull` inside that folder
 (the installer copies files without git, so reinstall to update).
 
 **Other tools.** Copy `AGENTS.md` into your project:
