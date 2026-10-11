@@ -1,8 +1,8 @@
 # reproducible-research-pipeline
 
 An AI coding skill for **reproducible, data-centric research and data pipelines**.
-It is a Claude Code skill, and also an `AGENTS.md` that Codex, Cursor, Copilot,
-Gemini and other tools can read. It gives an AI coding agent one consistent
+It is a skill for Claude Code and Codex, and also an `AGENTS.md` that Cursor,
+Copilot, Gemini and other tools can read. It gives an AI coding agent one consistent
 structure for turning raw data into trustworthy results:
 
 > A stranger clones the repo, follows only the README, runs **one command**, and
@@ -69,6 +69,7 @@ reproducible-research-pipeline/
 │   ├── notebooks-reports-publishing.md
 │   ├── scale-and-automation.md
 │   └── code-style.md
+├── agents/openai.yaml        # optional Codex UI metadata (display name, default prompt); other tools ignore it
 ├── templates/project/        # a small end-to-end example pipeline (see below)
 └── scripts/audit_pipeline.py # static audit of any repo against the conventions (stdlib only)
 ```
@@ -86,11 +87,30 @@ Update later with `git pull` inside that folder. Claude loads the skill when a
 task matches its description. You can also invoke it with
 `/reproducible-research-pipeline`.
 
+**Codex** (CLI, IDE extension and desktop app). Same skill format; clone into a
+Codex skills folder. The repo root *is* the skill.
+```bash
+# all projects
+git clone https://github.com/haocheng1130/reproducible-research-pipeline ~/.codex/skills/reproducible-research-pipeline
+# or a single project
+git clone https://github.com/haocheng1130/reproducible-research-pipeline <repo>/.agents/skills/reproducible-research-pipeline
+```
+Or ask Codex to install it with its built-in skill installer. Because the skill
+sits at the repo root, the installer needs an explicit path and name:
+```
+Install the skill from GitHub repo haocheng1130/reproducible-research-pipeline
+with --path . --name reproducible-research-pipeline
+```
+Restart Codex (or start a new session) afterwards. Codex loads the skill when a
+task matches its description. You can also invoke it with
+`$reproducible-research-pipeline`. Update later with `git pull` inside that folder
+(the installer copies files without git, so reinstall to update).
+
 **Other tools.** Copy `AGENTS.md` into your project:
 
 | Tool | Where `AGENTS.md` goes |
 |---|---|
-| Codex CLI and other AGENTS.md readers | repo root, as `AGENTS.md` |
+| Codex without the skill, and other AGENTS.md readers | repo root, as `AGENTS.md` |
 | Cursor | repo root, or `.cursor/rules/pipeline.mdc` with `alwaysApply: true` front matter |
 | GitHub Copilot | `.github/copilot-instructions.md` |
 | Gemini CLI | repo root, as `GEMINI.md` |

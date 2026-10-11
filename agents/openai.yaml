@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reproducible Research Pipeline"
+  short_description: "Reproducible, data-centric research and data pipelines"
+  default_prompt: "Use $reproducible-research-pipeline to make this data project rebuild end to end with one command."
