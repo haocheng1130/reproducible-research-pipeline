@@ -1,0 +1,23 @@
+# Install with:
+#   pip install -r requirements.txt
+#
+# Pin exact versions ("==") so everyone installs the same software. That is the
+# first step toward getting the same results. The pins below match the course's
+# HW0 environment (Python 3.12, autumn 2026). After your first successful
+# `doit` + `pytest`, re-pin everything you actually use:
+#   pip freeze > requirements.txt   (then prune packages you did not ask for)
+numpy==2.5.3
+pandas==2.2.3
+matplotlib==3.11.2
+pytest==9.1.1
+python-decouple==3.8
+doit==0.37.0
+chartbook==0.1.1
+jupytext==1.19.5
+nbconvert==7.17.1
+ipykernel==7.3.0
+
+# TODO: pin these after your first install (pip freeze | grep -iE "requests|pyarrow|jinja2")
+requests
+pyarrow
+jinja2

@@ -1,0 +1,32 @@
+# ChartBook manifest (format v2, as used in FINM 32800 HW0 with chartbook 0.1.x).
+# Registers what this pipeline produces so readers can trace raw -> final.
+# Field names have changed between ChartBook versions; check `chartbook --help`
+# and the ChartBook docs for the version pinned in requirements.txt.
+
+[project]
+id = "yield_curve"
+name = "GSW Treasury Yield Curve"
+description = "Daily zero-coupon U.S. Treasury yields (Gurkaynak, Sack and Wright 2007) cleaned into a tidy panel, with term-spread diagnostics."
+maintainer = "Your Name"
+contributors = ["Your Name"]
+repo_url = "https://github.com/your-org/your-repo"
+readme = "./README.md"
+copyright = "2026"
+os_compatibility = ["Windows", "Linux", "macOS"]
+build = """
+doit
+"""
+
+[notebooks]
+
+[notebooks.01_data_tour]
+description = "Tour of the cleaning waterfall, the tidy panel and the term spread."
+path = "_output/01_data_tour.ipynb"
+
+[dataframes]
+
+[dataframes.yield_curve_tidy]
+path = "./_data/yield_curve_tidy.parquet"
+docs = "One row per (date, maturity). Zero-coupon yield in percent, continuously compounded, maturities 1-30 years. Source: Federal Reserve Board, GSW (2007) yield curve, public, pulled by src/pull_fed_yield_curve.py; filters in src/clean_yield_curve.py (waterfall in _output/yield_curve_waterfall.csv)."
+
+[charts]

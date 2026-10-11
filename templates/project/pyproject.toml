@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+testpaths = ["src"]
+pythonpath = ["src"]
+# Run doctests too; notebooks (*.ipynb.py) are executed by doit, not imported by pytest.
+addopts = "--doctest-modules --ignore-glob=*.ipynb.py"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 88
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]

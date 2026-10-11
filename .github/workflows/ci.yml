@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  template:
+    name: Template tests and audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: templates/project/requirements.txt
+      - name: Install the template's dependencies
+        run: pip install -r templates/project/requirements.txt
+      # Unit tests and doctests run; data-validation tests skip (no data pulled in CI).
+      - name: Run the template's tests
+        working-directory: templates/project
+        run: pytest
+      - name: Audit the template with the bundled script
+        run: python scripts/audit_pipeline.py templates/project

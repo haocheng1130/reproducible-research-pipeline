@@ -1,0 +1,46 @@
+# Pulled data and generated outputs: rebuilt by `doit`, never committed
+/_data/*
+/_output/*
+/docs/
+/reports/*.pdf
+
+# Notebooks are authored as src/*.ipynb.py; executed .ipynb files are build products
+src/*.ipynb
+.ipynb_checkpoints/
+
+# Secrets and per-machine settings
+.env*
+!.env.example*
+
+# doit state
+.doit.db*
+.doit-db.sqlite*
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.synctex.gz
+*.xdv
+
+# OS / editors
+.DS_Store
+Thumbs.db
+*~

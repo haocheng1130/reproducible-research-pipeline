@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Template build products (the template's own .gitignore covers these too)
+templates/project/_data/
+templates/project/_output/
+templates/project/docs/
+templates/project/reports/*.pdf
+templates/project/.doit-db.sqlite*
+templates/project/src/*.ipynb
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# OS / editors
+.DS_Store
+Thumbs.db
